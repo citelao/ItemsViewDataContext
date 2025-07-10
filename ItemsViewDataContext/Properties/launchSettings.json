@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ItemsViewDataContext (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ItemsViewDataContext (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
