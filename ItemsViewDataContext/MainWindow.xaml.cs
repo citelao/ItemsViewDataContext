@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +28,24 @@ namespace ItemsViewDataContext
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public ObservableCollection<string> Items { get; } = new ObservableCollection<string>
+        {
+            "Item 1",
+            "Item 2",
+            "Item 3",
+            "Item 4",
+            "Item 5"
+        };
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var fe = sender as FrameworkElement;
+            var dataContext = fe?.DataContext;
+            var asString = dataContext as string;
+
+            Debug.WriteLine($"Button clicked! DataContext: {dataContext?.GetType().Name}, Value: {asString} ({dataContext})");
         }
     }
 }

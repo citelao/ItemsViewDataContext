@@ -13,7 +13,25 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid>
+    <StackPanel>
+        <ItemsView
+            ItemsSource="{x:Bind Items}">
+            <ItemsView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <ItemContainer>
+                        <Button Content="{x:Bind}" Click="Button_Click" />
+                    </ItemContainer>
+                </DataTemplate>
+            </ItemsView.ItemTemplate>
+        </ItemsView>
 
-    </Grid>
+        <ListView
+            ItemsSource="{x:Bind Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Button Content="{x:Bind}" Click="Button_Click" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
 </Window>
